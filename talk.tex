@@ -112,14 +112,8 @@ Let's make this more explicitly about reward learning.
 \begin{frame}[fragile]{Why do animals explore?}
 \begin{itemize}
     \item Find rewards
-    \item Where $G = V^* - V_a$
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]{Why do animals explore?}
-\begin{itemize}
-    \item Find rewards
     \item 
+    \item
 \end{itemize}
 \end{frame}
 
@@ -246,6 +240,7 @@ Let's make this more explicitly about reward learning.
     \item Counts/Successors?
     \item Information gain?
     \item Mutual information?
+    \item State prediction?
     \item \alert{Free energy?}
 \end{itemize}
 \end{frame}
@@ -365,7 +360,7 @@ Let's make this more explicitly about reward learning.
     \item What does a memory need to be a memory?
     \begin{enumerate}
         \item Finite, $M^k$
-        \item It must remember, $f : s, M \rightarrow M'$
+        \item It must remember, $f : s, M \rightarrow M'$ where $s \in S$
         \item It must recall, $g : s, M \rightarrow \hat s$
         \item It must forget, $f^{-1} : s, M' \rightarrow M$
     \end{enumerate}
@@ -488,7 +483,7 @@ Let's make this more explicitly about reward learning.
 \begin{itemize}
     \item A compressed world model:
     \begin{itemize}
-        \item $M^c < \mathbb{R}^n$
+        \item $W^c < \mathbb{R}^n$
         \item $f,g: $ lossy encoder, returns $\hat s$
         \item $d: \sqrt{|w - w'|^2}$ euclidean distance on weight parameters, $W$
     \end{itemize}
@@ -514,7 +509,7 @@ Let's make this more explicitly about reward learning.
     \begin{itemize}
         \item $M \in \mathbb{R}^n$
         \item $f,g: $ store $s$, recall $s$
-        \item $d: \sqrt{|m - n'|^2}$ 
+        \item $d: \sqrt{|m - m'|^2}$ 
     \end{itemize}
 \end{itemize}
 \end{frame}
@@ -524,7 +519,7 @@ Let's make this more explicitly about reward learning.
 \begin{itemize}
     \item An categorization world model:
     \begin{itemize}
-        \item $M \in \mathbb{R}^n$
+        \item $W^c \leq \mathbb{R}^n$
         \item $f,g: $ categorize $s$, recall category of $s$
         \item $d: |m - m'|^1$ or 
         \item $d: \sqrt{|w - w'|^2}$ euclidean distance on weight parameters, $W$
