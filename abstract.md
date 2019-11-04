@@ -1,0 +1,5 @@
+# A way around the exploration-exploitation dilemma
+
+Should behavior when gathering physical resources, like rewards, be the same as when gathering information? If we use separate strategies for objects and information, can this tell us something new and fundamental about the exploration-exploitation dilemma?
+
+The exploration-exploitation dilemma is a key but intractable problem in the learning and decision sciences. In this talk we’ll re-imagine exploration as an open-ended search for any new information. This is in contrast to its common definition, as a search for reward specifically. I’ll show how this re-imagining lets us find both a new theory for information value--which generalizes existing ideas like curiosity, novelty and information gain--and offers a tractable answer to the dilemma itself. I’ll prove that a competition between independent strategies for reward and information has an optimal solution, found by a simple algorithm. I’ll also talk about practical learning performance in challenging simulated environments with very sparse rewards
