@@ -1,0 +1,104 @@
+\documentclass[10pt]{beamer}
+\usepackage{appendixnumberbeamer}
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{pgfplots}
+\usepackage{xspace}
+\usepackage{xcolor}
+\usepackage{xurl}
+\usepackage{caption}
+
+\usetheme[progressbar=frametitle]{metropolis}
+\usepgfplotslibrary{dateplot}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+\captionsetup[figure]{labelformat=empty}
+
+% ---------------------------------------------------------
+\title{A way around the\\ exploration-exploitation dilemma}
+% \subtitle{A modern beamer theme}
+% \date{\today}
+\date{}
+\author{Erik J Peterson}
+\institute{Research fellow | CoAxLab\\
+Carnegie Mellon University\\
+\url{robotpuggle.com}}
+
+% ---------------------------------------------------------
+\begin{document}
+\maketitle
+
+% \begin{frame}{Table of contents.}
+%   \setbeamertemplate{section in toc}[sections numbered]
+%   \tableofcontents%[hideallsubsections]
+% \end{frame}
+
+% ---------------------------------------------------------
+% \begin{frame}[fragile]{Astrocytes and cognition!?}
+% \begin{itemize}
+%     \item Classically astrocytes have been considered neural support cells.
+%     \item Growing evidence that astrocytes can directly drive cognition and motor behavior.
+    
+
+% \end{itemize}
+% \end{frame}
+\begin{frame}[fragile]{The dilemma.}
+    \begin{quote}
+        Should I exploit an available reward, or explore to try a new uncertain action? 
+    \end{quote}
+\end{frame}
+
+\begin{frame}[fragile]{The dilemma.}
+Let's make this more explicitly about reward learning.
+\end{frame}
+
+\begin{frame}[fragile]{The dilemma.}
+    \begin{quote}
+        Should I exploit an available reward, or explore to try find more rewards? 
+    \end{quote}
+\end{frame}
+
+\begin{frame}[fragile]{Reward is fundamental.}
+\begin{itemize}
+    \item If you do not eat and drink and so on, you die.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Information is fundamental.}
+\begin{itemize}
+    % \item If you do not learn about your niche, you die.
+    \item Curiosity is not a luxury.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Information is not a reward.}
+\begin{itemize}
+    \item Rewards are a conserved resource.
+    \item Information is not.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Information is not a reward.}
+\begin{itemize}
+    \item Reward value is fixed?
+    \item Information value is \textit{never} fixed.
+\end{itemize}
+\end{frame}
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[scale=0.2]{images/agn.png} 
+%     \caption{
+%     \begin{itemize}
+%         \item Very little theoretical study of astrocyte computation.
+%         \item Focus is on neuron-glia interactions.
+%     \end{itemize}}
+% \end{figure}
+
+% ---------------------------------------------------------
+% \begin{frame}[allowframebreaks]{References}
+%   \bibliography{demo}
+%   \bibliographystyle{abbrv}
+% \end{frame}
+
+% ---------------------------------------------------------
+\end{document}
