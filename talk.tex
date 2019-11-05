@@ -11,7 +11,6 @@
 
 \DeclareMathOperator*{\argmax}{argmax} 
 \newtheorem{axiom}{Axiom} 
-\newtheorem{theorem}{Theorem}
 
 \usetheme[progressbar=frametitle]{metropolis}
 \usepgfplotslibrary{dateplot}
@@ -19,9 +18,7 @@
 \captionsetup[figure]{labelformat=empty}
 
 % ---------------------------------------------------------
-\title{A way around the\\ exploration-exploitation dilemma}
-% \subtitle{A modern beamer theme}
-% \date{\today}
+\title{A way around the\\exploration-exploitation dilemma}
 \date{}
 \author{Erik J Peterson}
 \institute{Research fellow | CoAxLab\\
@@ -47,47 +44,75 @@ Carnegie Mellon University\\
 % \end{itemize}
 % \end{frame}
 \begin{frame}[fragile]{The dilemma.}
-    \begin{quote}
-        Should I exploit an available reward, or explore to try a new uncertain action? 
-    \end{quote}
-\end{frame}
-
-\begin{frame}[fragile]{The dilemma.}
-Let's make this more explicitly about reward learning.
-\end{frame}
-
-\begin{frame}[fragile]{The dilemma.}
-    \begin{quote}
-        Should I exploit an available reward, or explore to try find more rewards? 
-    \end{quote}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.8]{images/left_bee.png} 
+    \caption{Should I exploit an available reward, or explore to try and find more rewards?}
+\end{figure}
 \end{frame}
 
 \begin{frame}[fragile]{Reward is fundamental.}
 \begin{itemize}
-    \item If you do not eat and drink and so on, you die.
+    \item If you do not eat and drink, you die.
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{The dilemma.}
+\begin{columns}
+\column{0.5\textwidth}
+\centering
 \begin{itemize}
     \item Exploration is the problem.
 \end{itemize}
+
+\column{0.5\textwidth}
+\centering
+\begin{figure}
+    \centering
+    \includegraphics[scale=1.5]{images/bee_explore.png} 
+    \caption{}
+\end{figure}
+\end{columns}
 \end{frame}
 
 \begin{frame}[fragile]{The dilemma.}
+\begin{columns}
+\column{0.5\textwidth}
+\centering
 \begin{itemize}
     \item Exploration is an intractable problem.
     \begin{itemize}
     \item There is no optimal solution.
-    \item Only average solutions \cite{Thrun1992a,Dayan1996,Findling2018,Gershman2018b}.
+    \item Only average solutions. \cite{Thrun1992a,Dayan1996,Findling2018,Gershman2018b}.
     \end{itemize}
 \end{itemize}
+
+\column{0.5\textwidth}
+\centering
+\begin{figure}
+    \centering
+    \includegraphics[scale=1.5]{images/bee_explore.png} 
+    \caption{}
+\end{figure}
+\end{columns}
 \end{frame}
 
 \begin{frame}[fragile]{The dilemma.}
+\begin{columns}
+\column{0.5\textwidth}
+\centering
 \begin{itemize}
     \item An average life is a life of full regret.
 \end{itemize}
+
+\column{0.5\textwidth}
+\centering
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{images/average_country_singer.png} 
+    \caption{\footnotesize{Found on reddit.com}}
+\end{figure}
+\end{columns}
 \end{frame}
 
 \begin{frame}[fragile]{The dilemma.}
@@ -105,7 +130,8 @@ Let's make this more explicitly about reward learning.
 
 \begin{frame}[fragile]{Our goal.}
 \begin{itemize}
-    \item $G=0$, for all $s \in S$, $a \in A$ and $t \leq T$.
+    \item To lead a life of no regret, $G=0$
+    \item ...for all $s \in S$, $a \in A$ and $t \leq T$.
 \end{itemize}
 \end{frame}
 
@@ -119,42 +145,48 @@ Let's make this more explicitly about reward learning.
 
 \begin{frame}[fragile]{Why do animals explore?}
 \begin{itemize}
-    \item Find rewards
+    \item \st{Find rewards}
+    \item 
+    \item
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Why do animals explore?}
+\begin{itemize}
+    \item \st{Find rewards}
     \item Learn about their niche
     \item Learn about other animals
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Why do animals explore?}
-\begin{itemize}
-    \item Find rewards
-    \item They are curious
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]{A path to no regret.}
+\begin{columns}
+\column{0.5\textwidth}
+\centering
 \begin{itemize}
     \item \st{Find rewards}
     \item They are curious
 \end{itemize}
+
+\column{0.5\textwidth}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.8]{images/right_bee.png}
+    \caption{}
+\end{figure}
+\end{columns}
 \end{frame}
 
-\begin{frame}[fragile]{Information is fundamental?}
+\begin{frame}[fragile]{Curiosity is not a luxury.}
 \begin{itemize}
     \item If you do not learn about your niche, you die.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Information is fundamental?}
-\begin{itemize}
-    \item Curiosity is not a luxury.
-\end{itemize}
-\end{frame}
-
 \begin{frame}[fragile]{Big conjecture \#1.}
-\begin{itemize}
-    \item \textbf{Information is fundamentally valuable.}
-\end{itemize}
+\begin{center}
+    Information is fundamentally valuable.
+\end{center}
 \end{frame}
 
 \begin{frame}[fragile]{\textit{Ad hoc} curiosity.}
@@ -171,57 +203,18 @@ Let's make this more explicitly about reward learning.
 \begin{itemize}
     \item Reward learning has made progress because it has a clear objective:
     \begin{itemize}
-        \item $ \max \sum R$
+        \item $ \max \sum_T R$
     \end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]{Reinforcement learning}
-\begin{itemize}
-    \item Reward learning has made progress because it has a clear objective:
-    \begin{itemize}
-        \item $ \max \sum R$
-    \end{itemize}
-    \item Curiosity needs a common purpose.
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Goal.}
 \begin{itemize}
-\item Give curiosity learning a common purpose.
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]{Two steps to the goal.}
-\begin{enumerate}
-    \item Gathering information is fundamental
-    \item Animals must learn \textit{world models}.
-    \item %A common objective
-    % \begin{itemize}
-    %     \item $ \max \sum E$
-    % \end{itemize}
-\end{enumerate}
-\end{frame}
-
-\begin{frame}[fragile]{Two steps to common purpose.}
-\begin{enumerate}
-    % TODO cartoon from Ha
-    \item Animals must learn \textit{world models}.
-    \item A common objective
-    % \begin{itemize}
-    %     \item $ \max \sum E$
-    % \end{itemize}
-\end{enumerate}
-\end{frame}
-
-\begin{frame}[fragile]{Two steps to common purpose.}
-\begin{enumerate}
-    \item Animals must learn \textit{world models}.
-    \item A common objective
+    \item Curiosity learning needs a clear and common objective:
     \begin{itemize}
-        \item $ \max \sum E$
+        \item $ \max \sum_T E$
     \end{itemize}
-\end{enumerate}
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{What is \textit{E}?}
@@ -247,140 +240,118 @@ Let's make this more explicitly about reward learning.
 
 \begin{frame}[fragile]{A minimum definition.}
 \begin{itemize}
-    \item To value information what do we need?
+    \item At an \textit{absolute minimum} what do we need to value information ?
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{A minimum definition.}
-\begin{itemize}
-    \item To value information what do we need?
-    \begin{enumerate}
-        \item A world
-        % \item Actions
-        % \item A memory
-    \end{enumerate}
-\end{itemize}
+\textit{What do we need to value information?}
+\begin{enumerate}
+    \item A world
+    % \item Actions
+    % \item A memory
+\end{enumerate}
 \end{frame}
 
 \begin{frame}[fragile]{A minimum definition.}
-\begin{itemize}
-    \item To value information what do we need?
-    \begin{enumerate}
-        \item A world
-        \item Actions
-        % \item A memory
-    \end{enumerate}
-\end{itemize}
+\textit{What do we need to value information?}
+\begin{enumerate}
+    \item A world
+    \item Actions
+    % \item A memory
+\end{enumerate}
 \end{frame}
 
 \begin{frame}[fragile]{A minimum definition.}
-\begin{itemize}
-    \item To value information what do we need?
-    \begin{enumerate}
-        \item A world
-        \item Actions
-        \item A memory
-    \end{enumerate}
-\end{itemize}
+\textit{What do we need to value information?}
+\begin{enumerate}
+    \item A world
+    \item Actions
+    \item A memory
+\end{enumerate}
 \end{frame}
 
 \begin{frame}[fragile]{A minimum definition.}
-\begin{itemize}
-    \item To value information what do we need?
-    \begin{enumerate}
-        \item A world
-        \item Actions
-        \item A memory $\Leftrightarrow$ \textit{world model}
-    \end{enumerate}
-\end{itemize}
+\textit{What do we need to value information?}
+\begin{enumerate}
+    \item A world
+    \item Actions
+    \item A memory $\Leftrightarrow$ \textit{world model}
+\end{enumerate}
 \end{frame}
 
 
 \begin{frame}[fragile]{A minimum definition.}
-\begin{itemize}
-    \item To value information what do we need?
-    \begin{enumerate}
-        \item A world, $S^n$
-        \item Actions $A^m$
-        \item A memory, $M^k$
-    \end{enumerate}
-\end{itemize}
-\end{frame}
-        
-\begin{frame}[fragile]{A minimum memory.}
-\begin{itemize}
-    \item What does a memory need to be a memory?
-    \begin{enumerate}
-        \item Finite
-        % \item It must remember
-        % \item It must recall
-        % \item It must forget
-    \end{enumerate}
-\end{itemize}
+\textit{What do we need to value information?}
+\begin{enumerate}
+    \item A world, $S^n$
+    \item Actions $A^m$
+    \item A memory, $M^k$
+\end{enumerate}
 \end{frame}
 
 \begin{frame}[fragile]{A minimum memory.}
-\begin{itemize}
-    \item What does a memory need to be a memory?
-    \begin{enumerate}
-        \item Finite
-        \item It must remember
-        % \item It must recall
-        % \item It must forget
-    \end{enumerate}
-\end{itemize}
+\textit{What does a memory need to be a memory?}
+\begin{enumerate}
+    \item Finite
+    % \item It must remember
+    % \item It must recall
+    % \item It must forget
+\end{enumerate}
 \end{frame}
 
 \begin{frame}[fragile]{A minimum memory.}
-\begin{itemize}
-    \item What does a memory need to be a memory?
-    \begin{enumerate}
-        \item Finite
-        \item It must remember
-        \item It must recall
-        % \item It must forget
-    \end{enumerate}
-\end{itemize}
+\textit{What does a memory need to be a memory?}
+\begin{enumerate}
+    \item Finite
+    \item It must remember
+    % \item It must recall
+    % \item It must forget
+\end{enumerate}
 \end{frame}
 
 \begin{frame}[fragile]{A minimum memory.}
-\begin{itemize}
-    \item What does a memory need to be a memory?
-    \begin{enumerate}
-        \item Finite
-        \item It must remember
-        \item It must recall
-        \item It must forget
-    \end{enumerate}
-\end{itemize}
+\textit{What does a memory need to be a memory?}
+\begin{enumerate}
+    \item Finite
+    \item It must remember
+    \item It must recall
+    % \item It must forget
+\end{enumerate}
 \end{frame}
 
 \begin{frame}[fragile]{A minimum memory.}
-\begin{itemize}
-    \item What does a memory need to be a memory?
-    \begin{enumerate}
-        \item Finite, $M^k$
-        \item It must remember, $f : s, M \rightarrow M'$ where $s \in S$
-        \item It must recall, $g : s, M \rightarrow \hat s$
-        \item It must forget, $f^{-1} : s, M' \rightarrow M$
-    \end{enumerate}
-\end{itemize}
+\textit{What does a memory need to be a memory?}
+\begin{enumerate}
+    \item Finite
+    \item It must remember
+    \item It must recall
+    \item It must forget
+\end{enumerate}
 \end{frame}
 
 \begin{frame}[fragile]{A minimum memory.}
-\begin{itemize}
-    \item What does a memory need to be a memory?
-    \begin{enumerate}
-        \item Finite, $M^K$
-        \item It must remember, $f : s, M \rightarrow M'$
-        \item It must recall, $g : s, M \rightarrow \hat s$
-        \item It must forget, $f^{-1} : s, M' \rightarrow M$
-        \item Made of real numbers, $M \in \mathbb{R}$
-    \end{enumerate}
-\end{itemize}
+\textit{What does a memory need to be a memory?}
+\begin{enumerate}
+    \item Finite, $M^k$
+    \item It must remember, $f : s, M \rightarrow M'$ where $s \in S$
+    \item It must recall, $g : s, M \rightarrow \hat s$
+    \item It must forget, $f^{-1} : s, M' \rightarrow M$
+\end{enumerate}
 \end{frame}
 
-\begin{frame}[fragile]{What is in common?}
+\begin{frame}[fragile]{A minimum memory.}
+\textit{What does a memory need to be a memory?}
+\begin{enumerate}
+    \item Finite, $M^k$
+    \item It must remember, $f : s, M \rightarrow M'$ where $s \in S$
+    \item It must recall, $g : s, M \rightarrow \hat s$
+    \item It must forget, $f^{-1} : s, M' \rightarrow M$
+    \item Made of real numbers, $M \in \mathbb{R}$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Commonalities?}
 \begin{itemize}
     \begin{itemize}
     \item Novelty
@@ -388,7 +359,7 @@ Let's make this more explicitly about reward learning.
     \item Information gain
     \item Mutual information
     \item State prediction
-    \end{itemize}
+    \end{itemize} \\
     \item \textbf{Value comes from how memory changes?}
 \end{itemize}
 \end{frame}
@@ -460,7 +431,7 @@ Let's make this more explicitly about reward learning.
     \item A novelty world model:
     \begin{itemize}
         \item $M \in \{0,1\}^n$
-        \item $f,g: $ adds $s$, checks for $s$
+        \item $f,g: $ add $s$, returns $1$ if no $s$ 
         \item $d: |m - m'|^1$ (the \textit{l1 norm} or \textit{Manhattan distance})
     \end{itemize}
 \end{itemize}
@@ -560,15 +531,15 @@ Let's make this more explicitly about reward learning.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{How to maximize total $E$?}
-\textit{Goal:}
+\begin{frame}[fragile]{How to maximize?}
 \begin{itemize}
-\item $\max \sum_T E$
+\item[Recall:] $E \equiv ||\Delta||$
+\item[Goal:] $\alert{\max \sum_T} E$
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Is it enough?}
-\textit{What we have}:
+\textit{Recall}:
 \begin{itemize}
 \item A minimal memory
 \item Axiom of change
@@ -637,21 +608,31 @@ Let's make this more explicitly about reward learning.
 \end{frame}
 
 \begin{frame}[fragile]{Big conjecture \#2.}
-\begin{itemize}
-    \item \textbf{Information is not a reward.}
-\end{itemize}
+\begin{center}
+    Information is not a reward.
+\end{center}
 \end{frame}
 
 \begin{frame}[fragile]{Information is not a reward.}
+\begin{columns}
+\column{0.5\textwidth}
 \textit{No:}
 \begin{itemize}
     \item $R + E$
     \item $R + \beta I$
     \item $R + novelty$
 \end{itemize}
+
+\column{0.5\textwidth}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{images/cake_book.png}
+    \caption{}
+\end{figure}
+\end{columns}
 \end{frame}
 
-\begin{frame}[fragile]{Now we have two problems!}
+\begin{frame}[fragile]{Now we have two problems....}
 \textit{Learn:}
 \begin{enumerate}
     \item An action policy $\pi_R$ to $\max \sum_T R$
@@ -729,30 +710,43 @@ Let's make this more explicitly about reward learning.
 \end{frame}
 
 \begin{frame}[fragile]{$n$-armed bandits.}
-% TODO image
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.2]{images/fig2.png}
+    \caption{}
+\end{figure}
 \end{frame}
 
 \begin{frame}[fragile]{$n$-armed bandits.}
-% TODO table
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.8]{images/agents.png}
+    \caption{}
+\end{figure}
 \end{frame}
 
 \begin{frame}[fragile]{$n$-armed bandits.}
-% TODO results
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.125]{images/fig3.png}
+    \caption{}
+\end{figure}
 \end{frame}
 
 \begin{frame}[fragile]{Do humans value information equally?}
-\textit{bitjoy} bandit tasks:
-\begin{itemize}
-    \item TODO
-\end{itemize}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{images/bitjoy.png}
+    \caption{The \textit{bitjoy} bandit task.}
+\end{figure}
 \end{frame}
 
-\begin{frame}[fragile]{Future work.}
-\textit{Explore deterministic (optimal) exploration in:}
-\begin{itemize}
-    \item Artificial intelligence
-    \item Animal behavior
-\end{itemize}
+\begin{frame}[fragile]{Bitjoy.}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{images/bitjoy_main_results.png}
+    \caption{Human behavioral performance ($n=24$).}
+\end{figure}
 \end{frame}
 
 \begin{frame}[fragile]{Conclusions.}
@@ -762,6 +756,14 @@ Let's make this more explicitly about reward learning.
     \item You'll have no regrets, and the reward will come.
 \end{itemize}
 % TODO right bee here in other col
+\end{frame}
+
+\begin{frame}[fragile]{Future work.}
+\textit{Explore deterministic (optimal) exploration in:}
+\begin{itemize}
+    \item Artificial intelligence
+    \item Animal behavior
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Open science.}
@@ -775,24 +777,18 @@ Let's make this more explicitly about reward learning.
 \end{frame}
 
 \begin{frame}[fragile]{Hire me!}
-% TODO silly picture
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.15]{images/bunny_ears_me.jpg}
+    \caption{\url{robotpuggle.com}}
+\end{figure}
 \end{frame}
 
-% \begin{figure}
-%     \centering
-%     \includegraphics[scale=0.2]{images/agn.png} 
-%     \caption{
-%     \begin{itemize}
-%         \item Very little theoretical study of astrocyte computation.
-%         \item Focus is on neuron-glia interactions.
-%     \end{itemize}}
-% \end{figure}
-
 % ---------------------------------------------------------
-% \begin{frame}[allowframebreaks]{References}
-%   \bibliography{demo}
-%   \bibliographystyle{abbrv}
-% \end{frame}
+\begin{frame}[allowframebreaks]{References}
+  \bibliography{library}
+  \footnotesize{\bibliographystyle{abbrv}}
+\end{frame}
 
 % ---------------------------------------------------------
 \end{document}
