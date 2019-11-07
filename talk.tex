@@ -672,6 +672,37 @@ Carnegie Mellon University\\
 \end{enumerate}
 \end{frame}
 
+\begin{frame}[fragile]{Now we have two problems....}
+\textit{Learn:}
+\begin{enumerate}
+    \item An action policy $\pi_R$ to $\max \sum_T R$
+    \item An action policy $\pi_E$ to \alert{$\max \sum_T E$}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Dual value learning}
+\textit{Solution:}
+\begin{equation*}
+    \label{eq:pipi} 
+	\begin{split}
+		\pi^{\pi} = 
+		\begin{cases}
+			\pi^*_E & : E > R \\
+			\pi_R & : E \le R \\
+		\end{cases}
+% 		\\
+% 		\text{subject to the constraints}\\
+% 		R \in \{0, 1\} \\
+% 		p(\mathbb E[R]) < 1 \\
+% 		E - \eta \geq 0 \\
+% 		\text{choose}\ E_0 > 0
+	\end{split}
+\end{equation*}
+% \begin{itemize}
+% \item (Proof by induction; it's a classic scheduling problem)
+% \end{itemize}
+\end{frame}
+
 \begin{frame}[fragile]{Dual value learning}
 \textit{Solution:}
 \begin{equation*}
@@ -685,7 +716,7 @@ Carnegie Mellon University\\
 		\\
 		\text{subject to the constraints}\\
 		R \in \{0, 1\} \\
-		p(\mathbb E[R]) < 1 \\
+		p(R=1) < 1 \\
 		E - \eta \geq 0 \\
 		\text{choose}\ E_0 > 0
 	\end{split}
@@ -721,24 +752,23 @@ Carnegie Mellon University\\
 
 \begin{frame}[fragile]{Progress.}
 \begin{itemize}
-\item A no regret way to solve exploration-exploitation problems
-\item Learns a/the necessary world model along the way
+\item There is a no regret way to solve exploration-exploitation problems. It:
+\item Learns a world model
 \begin{itemize}
-    \item (Works for \textit{nearly} any world model)
+    \item Works for \textit{nearly} any world model
 \end{itemize}
-\item Straight forward to ensure the best reward policy is found
+\item Can find the best reward policy
 \begin{itemize}
-    \item (Works for \textit{nearly} on reinforcement learning rule)
-    \item (...Just pick a \textit{good one})
+    \item Works for \textit{nearly} on reinforcement learning rule
 \end{itemize}
+\item Is strictly deterministic
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{In practice.}
-\begin{itemize}
-    \item \alert{Theoretical promises often fail in practice.}
-    \item (But initial results look promising.)
-\end{itemize}
+\begin{frame}[fragile]{Progress.}
+\begin{quote}
+    Theoretical promises often fail in practice.
+\end{quote}
 \end{frame}
 
 \begin{frame}[fragile]{$n$-armed bandits.}
@@ -783,15 +813,24 @@ Carnegie Mellon University\\
 
 \begin{frame}[fragile]{Conclusions.}
 \begin{itemize}
-    \item Don't explore to get rewards.
-    \item Explore to learn.
-    \item You'll have no regrets, and the reward will come.
+    \item Do animals explore to get more reward?
+    \item Then optimality is \textit{at best} average.
 \end{itemize}
-% TODO right bee here in other col
+\end{frame}
+
+\begin{frame}[fragile]{Conclusions.}
+\begin{itemize}
+    \item Do animals explore to learn more?
+    \item Then there is a solution to all exploration-exploitation problems. It has 
+    \begin{itemize}
+        \item no regret,
+        \item learns a world model, and
+        \item can always find the most rewarding path$^*$.
+    \end{itemize}
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Future work.}
-\textit{Explore deterministic (optimal) exploration in:}
 \begin{itemize}
     \item Artificial intelligence
     \item Animal behavior
