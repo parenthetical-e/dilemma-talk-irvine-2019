@@ -1,6 +1,4 @@
 # dilemma-talk-irvine-2019 
-A talk about valuing information and reward equally, and the theorems
-that follow if you. 
 
 In this talk I offer a solution to all exploration-exploitation problems. It
 has no regret, learns a world model, and can always find the most rewarding
