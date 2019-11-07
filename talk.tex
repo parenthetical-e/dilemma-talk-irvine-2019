@@ -51,12 +51,6 @@ Carnegie Mellon University\\
 \end{figure}
 \end{frame}
 
-\begin{frame}[fragile]{Reward is fundamental.}
-\begin{itemize}
-    \item If you do not eat and drink, you die.
-\end{itemize}
-\end{frame}
-
 \begin{frame}[fragile]{The dilemma.}
 \begin{columns}
 \column{0.5\textwidth}
@@ -102,7 +96,7 @@ Carnegie Mellon University\\
 \column{0.5\textwidth}
 \centering
 \begin{itemize}
-    \item An average life is a life of full regret.
+    \item An average life is full of regret.
 \end{itemize}
 
 \column{0.5\textwidth}
@@ -110,14 +104,14 @@ Carnegie Mellon University\\
 \begin{figure}
     \centering
     \includegraphics[scale=0.4]{images/average_country_singer.png} 
-    \caption{\footnotesize{Found on reddit.com}}
+    \caption{\footnotesize{The average country singer.}}
 \end{figure}
 \end{columns}
 \end{frame}
 
 \begin{frame}[fragile]{The dilemma.}
 \begin{itemize}
-    \item An average life is a life of full regret, $G$.
+    \item An average life is full of regret, $G$.
     \item Where $G = V^* - V_a$
 \end{itemize}
 \end{frame}
@@ -186,6 +180,12 @@ Carnegie Mellon University\\
 \begin{frame}[fragile]{Big conjecture \#1.}
 \begin{center}
     Information is fundamentally valuable.
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Big conjecture \#2.}
+\begin{center}
+    Exploration for reward is never needed. The only exploratory behavior an animal needs is that which builds its world model.
 \end{center}
 \end{frame}
 
@@ -280,7 +280,6 @@ Carnegie Mellon University\\
 \end{enumerate}
 \end{frame}
 
-
 \begin{frame}[fragile]{A minimum definition.}
 \textit{What do we need to value information?}
 \begin{enumerate}
@@ -371,51 +370,55 @@ Carnegie Mellon University\\
 \end{axiom}
 \end{frame}
 
-\begin{frame}[fragile]{Minimal distance.}
-\begin{itemize}
-    \item $d(m,m')$, where $m \in M$ and $m' \in M'$
-    \item $d \ge 0$
-    \item $d = 0$ only if $M = M'$
-    % \item ($d$ is a pre-metric)
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]{Minimal distance.}
-\begin{itemize}
-    \item $d(m,m')$, where $m \in M$ and $m' \in M'$
-    \item $d \ge 0$
-    \item $d = 0$ only if $M = M'$
-    \item \alert{$d$ is a pre-metric}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]{Minimal distance.}
+\begin{frame}[fragile]{Minimal distance $d$.}
 \begin{itemize}
     \item Let $\delta = d(m,m')$, where $m \in M$ and $m' \in M'$
     \item $\delta \ge 0$
-    \item $\delta = 0$ only if $M = M'$
-    \item \textit{Optional}: 
-    \begin{itemize}
-        \item $d(m,m') = d(m',m)$ 
-        \item triangle inequality
-    \end{itemize}
-    
+    \item $\sum \delta = 0$ only if $M = M'$
+    \item ($d$ is a pre-metric)
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Total distance.}
+% \begin{frame}[fragile]{Minimal distance $d$.}
+% \begin{itemize}
+%     \item Let $\delta = d(m,m')$, where $m \in M$ and $m' \in M'$
+%     \item $\delta \ge 0$
+%     \item $\sum \delta = 0$ only if $M = M'$
+%     \item \alert{$d$ is a pre-metric}
+% \end{itemize}
+% \end{frame}
+
+% \begin{frame}[fragile]{Minimal distance $d$.}
+% \begin{itemize}
+%     \item Let $\delta = d(m,m')$, where $m \in M$ and $m' \in M'$
+%     \item $\delta \ge 0$
+%     \item $\sum \delta = 0$ only if $M = M'$
+%     \item \textit{Optional}: 
+%     \begin{itemize}
+%         \item $d(m,m') = d(m',m)$ 
+%         \item triangle inequality
+%     \end{itemize}
+% \end{itemize}
+% \end{frame}
+
+\begin{frame}[fragile]{Total distance $||\Delta||$.}
 \begin{itemize}
 \item The total distance is the norm of $\Delta$, $||\Delta||$
 \item Where $\Delta = \{\delta_1, \delta_2,...,\delta_K\}$
+% \item \textbf{Let $E \equiv ||\Delta||$}
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{This is $E$}
+\begin{frame}[fragile]{Total distance $||\Delta||$.}
 \begin{itemize}
 \item The total distance is the norm of $\Delta$, $||\Delta||$
 \item Where $\Delta = \{\delta_1, \delta_2,...,\delta_K\}$
-\item \textbf{Let $E \equiv ||\Delta||$.}
+\item \textbf{Let $E \equiv ||\Delta||$}
 \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{What is $E$.}
+\textbf{Axiom 1 $\rightarrow ||\Delta||$.}
 \end{frame}
 
 \begin{frame}[fragile]{Examples.}
@@ -430,7 +433,7 @@ Carnegie Mellon University\\
 \begin{itemize}
     \item A novelty world model:
     \begin{itemize}
-        \item $M \in \{0,1\}^n$
+        \item $M \in \mathbb{R}^n$
         \item $f,g: $ add $s$, returns $1$ if no $s$ 
         \item $d: |m - m'|^1$ (the \textit{l1 norm} or \textit{Manhattan distance})
     \end{itemize}
@@ -509,6 +512,18 @@ Carnegie Mellon University\\
 \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]{Examples.}
+\textit{Choose $\{M, f, g, d\}$}.
+\begin{itemize}
+    \item A Bayesian world model:
+    \begin{itemize}
+        \item $M \in \mathbb{R}^{nm}$
+        \item $f,g: $ Bayes rule
+        \item $d \approx KL-divergence$
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
 \begin{frame}[fragile]{Axiom 2.}
 \begin{axiom}
 	[Axiom of Equilibrium] To be valuable an observation $s$ must be learnable by $M$. 
@@ -555,6 +570,14 @@ Carnegie Mellon University\\
 \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]{Value during optimal play.}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.2]{images/E_time.png}
+    \caption{Reward and information value.}
+\end{figure}
+\end{frame}
+
 \begin{frame}[fragile]{Progress.}
 \begin{enumerate}
 \item Information is fundamental
@@ -569,6 +592,15 @@ Carnegie Mellon University\\
 \item Every time step $t$ is greedy; always pick the biggest distance.
 \end{itemize}
 \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{\st{Goal.}}
+\begin{itemize}
+    \item Curiosity learning \textit{has} a clear and common objective:
+    \begin{itemize}
+        \item $ \max \sum_T E$
+    \end{itemize}
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{The dilemma.}
@@ -607,7 +639,7 @@ Carnegie Mellon University\\
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Big conjecture \#2.}
+\begin{frame}[fragile]{Big conjecture \#3.}
 \begin{center}
     Information is not a reward.
 \end{center}
