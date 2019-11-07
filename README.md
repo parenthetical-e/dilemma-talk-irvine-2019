@@ -6,6 +6,7 @@ actions.
 
 - Presented by Erik Peterson @ UCI on Nov 7.
 - For more information: `erik.exists@gmail.com` or `@parenthetical_e` on Twitter.
+- Or visit, `robotpuggle.com`
 
 # Usage
 - A pdf of the final talk is available in this repo, as `talk.pdf`
